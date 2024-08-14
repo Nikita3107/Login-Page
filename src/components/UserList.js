@@ -22,7 +22,16 @@ const UserList = () => {
     if(error)return<p style={{color:'red'}}>{error}</p>
 
   return (
-    <div>UserList</div>
+    <>
+    <h2>UserList</h2>
+    <ul>
+        {users.map((user)=>(
+            <li key={user.id}>{user.name}-{user.email}</li>
+        ))
+
+        }
+    </ul>
+    </>
   )
 }
 
