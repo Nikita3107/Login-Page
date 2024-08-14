@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-const Login = ({ onLoginSuccess }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+const Login = ({onLoginSuccess}) => {
+    const[email,setEmail]=useState('');
+    const[password,setPassword]=useState('');
+    const[error,setError]=useState('');
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      setError("email and password are required");
-      return;
+    const handleLogin=()=>{
+        if(!email||!password){
+            setError('email and password are required')
+            return;
+        }
+        onLoginSuccess();
     }
-    onLoginSuccess();
-  };
 
-  return <></>;
-};
+  return (
+    <>
+       <h2>Login</h2> 
+       <input type='text' placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
+       <input type='password' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+<button onClick={handleLogin}>Login</button>
+{error && <p style={{ color: 'red' }}>{error}</p>}
+    </>
+  )
+}
 
-export default Login;
+export default Login
