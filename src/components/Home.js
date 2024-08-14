@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Home = () => {
+const Home = ({ onLogout }) => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <h2>Home Screen</h2>
+      <button onClick={onLogout}>Logout</button>
+    </>
+  );
+};
 
-export default Home
+export default Home;
