@@ -21,20 +21,20 @@ const SignUp = ({ onSignUpSuccess }) => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      ></input>
+      ></input><br></br>
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      ></input>
+      ></input><br></br>
       <input
         type="phone"
         placeholder="Phone"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
-      ></input>
-      <button onClick={handleSignUp}>SignUp</button>
+      ></input><br></br>
+      <button onClick={handleSignUp}>SignUp</button><br></br>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </>
   );

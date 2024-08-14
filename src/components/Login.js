@@ -21,14 +21,14 @@ const Login = ({ onLoginSuccess }) => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      ></input>
+      ></input><br></br>
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <button onClick={handleLogin}>Login</button>
+      ></input><br></br>
+      <button onClick={handleLogin}>Login</button><br></br>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </>
   );

@@ -3,10 +3,12 @@ import "./App.css";
 import AdminDashboard from "./components/AdminDashboard";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import SignUp from "./components/SignUp"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
@@ -19,9 +21,16 @@ function App() {
     setIsLoggedIn(false);
     setIsAdmin(false);
   };
-
-  if (!isLoggedIn) {
-    return <Login onLoginSuccess={handleLoginSuccess} />;
+  if (!isLoggedIn && !isSignUp) {
+    return (
+      <>
+        <Login onLoginSuccess={handleLoginSuccess} />
+        <button onClick={() => setIsSignUp(true)}>Sign Up</button>
+      </>
+    );
+  }
+  if ( isSignUp && !isLoggedIn) {
+    return <SignUp onSignUpSuccess={handleSignUpSuccess} />;
   }
   if (isLoggedIn && isAdmin) {
     return <AdminDashboard />;
