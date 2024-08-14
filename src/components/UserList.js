@@ -1,39 +1,31 @@
+// UserList.js
 import React, { useEffect, useState } from "react";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState("true");
-  const [error, setError] = useState("null");
+  const [loading, setLoading] = useState(true);
 
-  useEffect =
-    (() => {
-      fetch("https://mmfinfotech.co/machine_test/api/userList?page=1")
-        .then((response) => response.json())
-        .then((data) => {
-          setUsers(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          setError("failed to fetch user");
-          setLoading(false);
-        });
-    },
-    []);
+  useEffect(() => {
+    // Simulating a data fetch
+    setTimeout(() => {
+      setUsers(["User1", "User2", "User3"]);
+      setLoading(false);
+    }, 1000); // Simulate 1 second delay
+  }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <>
-      <h2>UserList</h2>
+    <div>
+      <h3>User List</h3>
       <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.name}-{user.email}
-          </li>
+        {users.map((user, index) => (
+          <li key={index}>{user}</li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
