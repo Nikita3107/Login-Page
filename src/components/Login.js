@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+const Login = ({ onLoginSuccess }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-export default Login
+  const handleLogin = () => {
+    if (!email || !password) {
+      setError("email and password are required");
+      return;
+    }
+    onLoginSuccess();
+  };
+
+  return <></>;
+};
+
+export default Login;
